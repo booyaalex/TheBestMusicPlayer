@@ -1,6 +1,6 @@
 ﻿namespace TheBestMusicPlayer
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.NavagationBar = new System.Windows.Forms.ToolStrip();
             this.NavBar_Title = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -50,6 +50,11 @@
             this.MusicPage = new System.Windows.Forms.Panel();
             this.MainPage = new System.Windows.Forms.Panel();
             this.MusicPage_TrackList = new System.Windows.Forms.ListView();
+            this.track = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.album = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.artist = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MusicPage_Navigation = new System.Windows.Forms.Panel();
             this.NavagationBar.SuspendLayout();
             this.CurrentTrack.SuspendLayout();
@@ -159,7 +164,7 @@
             // 
             this.CurrentTrack_RepeatButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CurrentTrack_RepeatButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CurrentTrack_RepeatButton.Image = global::TheBestMusicPlayer.Properties.Resources.Circle;
+            this.CurrentTrack_RepeatButton.Image = ((System.Drawing.Image)(resources.GetObject("CurrentTrack_RepeatButton.Image")));
             this.CurrentTrack_RepeatButton.Location = new System.Drawing.Point(565, 17);
             this.CurrentTrack_RepeatButton.Name = "CurrentTrack_RepeatButton";
             this.CurrentTrack_RepeatButton.Size = new System.Drawing.Size(16, 16);
@@ -172,7 +177,7 @@
             // 
             this.CurrentTrack_NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CurrentTrack_NextButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CurrentTrack_NextButton.Image = global::TheBestMusicPlayer.Properties.Resources.Forward;
+            this.CurrentTrack_NextButton.Image = ((System.Drawing.Image)(resources.GetObject("CurrentTrack_NextButton.Image")));
             this.CurrentTrack_NextButton.Location = new System.Drawing.Point(543, 17);
             this.CurrentTrack_NextButton.Name = "CurrentTrack_NextButton";
             this.CurrentTrack_NextButton.Size = new System.Drawing.Size(16, 16);
@@ -185,7 +190,7 @@
             // 
             this.CurrentTrack_PreviousButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CurrentTrack_PreviousButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CurrentTrack_PreviousButton.Image = global::TheBestMusicPlayer.Properties.Resources.Backward;
+            this.CurrentTrack_PreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("CurrentTrack_PreviousButton.Image")));
             this.CurrentTrack_PreviousButton.Location = new System.Drawing.Point(258, 17);
             this.CurrentTrack_PreviousButton.Name = "CurrentTrack_PreviousButton";
             this.CurrentTrack_PreviousButton.Size = new System.Drawing.Size(16, 16);
@@ -198,7 +203,7 @@
             // 
             this.CurrentTrack_PlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CurrentTrack_PlayButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CurrentTrack_PlayButton.Image = global::TheBestMusicPlayer.Properties.Resources.Play;
+            this.CurrentTrack_PlayButton.Image = ((System.Drawing.Image)(resources.GetObject("CurrentTrack_PlayButton.Image")));
             this.CurrentTrack_PlayButton.Location = new System.Drawing.Point(236, 17);
             this.CurrentTrack_PlayButton.Name = "CurrentTrack_PlayButton";
             this.CurrentTrack_PlayButton.Size = new System.Drawing.Size(16, 16);
@@ -279,6 +284,12 @@
             // MusicPage_TrackList
             // 
             this.MusicPage_TrackList.BackColor = System.Drawing.SystemColors.Control;
+            this.MusicPage_TrackList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.track,
+            this.name,
+            this.album,
+            this.artist,
+            this.path});
             this.MusicPage_TrackList.FullRowSelect = true;
             this.MusicPage_TrackList.GridLines = true;
             this.MusicPage_TrackList.HideSelection = false;
@@ -289,7 +300,32 @@
             this.MusicPage_TrackList.TabIndex = 4;
             this.MusicPage_TrackList.UseCompatibleStateImageBehavior = false;
             this.MusicPage_TrackList.View = System.Windows.Forms.View.Details;
-            this.MusicPage_TrackList.SelectedIndexChanged += new System.EventHandler(this.MusicPage_TrackList_DoubleClick);
+            this.MusicPage_TrackList.DoubleClick += new System.EventHandler(this.MusicPage_TrackList_DoubleClick);
+            // 
+            // track
+            // 
+            this.track.Text = "#";
+            this.track.Width = 25;
+            // 
+            // name
+            // 
+            this.name.Text = "Song";
+            this.name.Width = 37;
+            // 
+            // album
+            // 
+            this.album.Text = "Album";
+            this.album.Width = 41;
+            // 
+            // artist
+            // 
+            this.artist.Text = "Artist";
+            this.artist.Width = 35;
+            // 
+            // path
+            // 
+            this.path.Text = "Path";
+            this.path.Width = 0;
             // 
             // MusicPage_Navigation
             // 
@@ -298,7 +334,7 @@
             this.MusicPage_Navigation.Size = new System.Drawing.Size(129, 360);
             this.MusicPage_Navigation.TabIndex = 3;
             // 
-            // Form1
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -306,8 +342,9 @@
             this.Controls.Add(this.CurrentTrack);
             this.Controls.Add(this.MusicPage);
             this.Controls.Add(this.NavagationBar);
-            this.Name = "Form1";
+            this.Name = "mainForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.NavagationBar.ResumeLayout(false);
             this.NavagationBar.PerformLayout();
             this.CurrentTrack.ResumeLayout(false);
@@ -339,7 +376,6 @@
         private System.Windows.Forms.Label CurrentTrack_TrackPosition;
         private System.Windows.Forms.Panel MusicPage;
         private System.Windows.Forms.Panel MainPage;
-        private System.Windows.Forms.ListView MusicPage_TrackList;
         private System.Windows.Forms.Panel MusicPage_Navigation;
         private System.Windows.Forms.PictureBox CurrentTrack_PlayButton;
         private System.Windows.Forms.PictureBox CurrentTrack_PreviousButton;
@@ -347,6 +383,12 @@
         public System.Windows.Forms.ProgressBar CurrentTrack_TimeBar;
         private System.Windows.Forms.PictureBox CurrentTrack_RepeatButton;
         private System.Windows.Forms.PictureBox CurrentTrack_CoverImage;
+        private System.Windows.Forms.ColumnHeader track;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader album;
+        private System.Windows.Forms.ColumnHeader artist;
+        private System.Windows.Forms.ColumnHeader path;
+        private System.Windows.Forms.ListView MusicPage_TrackList;
     }
 }
 
